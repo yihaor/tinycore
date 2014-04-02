@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="TomcatBuilder" default="all" basedir="../WebRoot">
+	<description>Create tinycore.war WAR and deploy to Tomcat</description>
+	<property name="tomcatdir" location="C:\Software\Genuitec\apache-tomcat-6.0.39-TinyCore" />
+	<property name="deploydir" location="${tomcatdir}/webapps" />
+
+	<!-- 初始化任务  -->
+    <target name="init" />
+	<!-- 编译  -->
+    <target name="compile" depends="init" description="compile the source files" />
+    <!-- 打war包  -->
+    <target name="deploy" depends="compile" description="create war file" >
+    	<delete file="${basedir}/tinycore.war"/>
+    	<war destfile="${basedir}/tinycore.war" webxml="${basedir}/WEB-INF/web.xml" >
+    		<fileset dir="${basedir}" />
+    		<classes dir="${basedir}/WEB-INF/classes" />
+    		<lib dir="${basedir}/WEB-INF/lib" />
+    	</war>
+	</target>
+	<!-- 部署到Tomcat-->
+	<target name="publish" depends="deploy" description="copy to Tomcat">
+		<copy file="${basedir}/tinycore.war" todir="${deploydir}" />
+	</target>
+	
+	<target name="all" depends="publish" />
+    
+</project>
