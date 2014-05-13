@@ -13,12 +13,12 @@
     	<delete file="${basedir}/tinycore.war"/>
     	<war destfile="${basedir}/tinycore.war" webxml="${basedir}/WEB-INF/web.xml" >
     		<fileset dir="${basedir}" />
-    		<classes dir="${basedir}/WEB-INF/classes" />
     		<lib dir="${basedir}/WEB-INF/lib" />
     	</war>
 	</target>
 	<!-- 部署到Tomcat-->
 	<target name="publish" depends="deploy" description="copy to Tomcat">
+		<delete file="${deploydir}/tinycore.war"/>
 		<copy file="${basedir}/tinycore.war" todir="${deploydir}" />
 		<delete file="${basedir}/tinycore.war"/>
 	</target>
