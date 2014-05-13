@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="TomcatBuilder" default="all" basedir="../WebRoot">
 	<description>Create tinycore.war WAR and deploy to Tomcat</description>
-	<property name="tomcatdir" location="C:\Software\Genuitec\apache-tomcat-6.0.39-TinyCore" />
+	<property name="tomcatdir" location="D:\Servers\AT7.0.52-tinycore" />
 	<property name="deploydir" location="${tomcatdir}/webapps" />
 
 	<!-- 初始化任务  -->
@@ -20,6 +20,7 @@
 	<!-- 部署到Tomcat-->
 	<target name="publish" depends="deploy" description="copy to Tomcat">
 		<copy file="${basedir}/tinycore.war" todir="${deploydir}" />
+		<delete file="${basedir}/tinycore.war"/>
 	</target>
 	
 	<target name="all" depends="publish" />
