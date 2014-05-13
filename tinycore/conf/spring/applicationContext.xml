@@ -2,7 +2,7 @@
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
 <beans>
 
-	<import resource="/spring/applicationConfig.xml" />
-	<import resource="/spring/actionConfig.xml" />
+	<import resource="applicationConfig.xml" />
+	<import resource="actionConfig.xml" />
 	
 </beans>
